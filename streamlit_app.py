@@ -16,13 +16,5 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 fruits_selected = streamlit.multiselect("Pick some Fruits",list(my_fruit_list.index),['Avocado','Strawberries'])
-fruits_to_show1 = my_fruit_list.loc[fruits_selected]
-streamlit.dataframe(fruits_to_show1)
-
-streamlit.header('Fruitvise Fruit Advise!')
-
-import requests
-fruityvise_response = requests.get("https://fruityvise.com/api.fruit/" + "kiwi")
-streamlit.text(fruityvise_respose.json())
-fruityvise_normalized = pandas.json_normalize(fruityvise_response.json())
-streamlit.dataframe(fruityvise_normalized)
+fruits_to_show = my_fruit_list.loc[fruits_selected]
+streamlit.dataframe(fruits_to_show)
