@@ -24,8 +24,8 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header('Fruityvise Fruit Advise!')
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-to_be_normalized = streamlit.text(fruityvice_response.json())
+streamlit.text(fruityvice_response.json())
 
 #take JSON version of response and normalize it.
-fruityvise_normalid = padas.json_normalize(to_be_normalized)
+fruityvise_normalid = padas.json_normalize(streamlit.text(fruityvice_response.json()))
 streamlit.dataframe = fruityvise_normalid
