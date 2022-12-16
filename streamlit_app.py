@@ -18,7 +18,7 @@ fruits_selected = st.multiselect("Pick some Fruits",list(my_fruit_list.index),['
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 df6 = pd.DataFrame(data=fruits_to_show)
-#st.text(fruits_to_show)
+st.text(df6)
 st.dataframe()
 
 #st.text(fruits_to_show)
