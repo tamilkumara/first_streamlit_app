@@ -17,11 +17,12 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 fruits_selected = st.multiselect("Pick some Fruits",list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
-st.text(fruits_to_show)
-st.dataframe(fruits_to_show)
+df6 = pd.DataFrame(data=fruits_to_show)
+#st.text(fruits_to_show)
+st.dataframe()
 
 #st.text(fruits_to_show)
-#df_my_fruit_list = pd.DataFrame(fruits_to_show)
+
 
 #st.dataframe(df_my_fruit_list)
 #st.text(df_my_fruit_list)
