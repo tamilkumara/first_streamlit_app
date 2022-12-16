@@ -22,5 +22,5 @@ import streamlit
 fruits_selected = streamlit.multiselect("Pick some Fruits",list(my_fruit_list1.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list1.loc[fruits_selected]
 streamlit.text(fruits_to_show)
-#streamlit.dataframe(my_fruit_list1)
+streamlit.DataFrame(my_fruit_list1)
 #streamlit.dataframe[my_fruit_list]
