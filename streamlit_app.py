@@ -19,7 +19,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 df6 = pd.DataFrame(data=fruits_to_show)
 st.text(df6)
-st.dataframe()
+st.dataframe['"df6"']
 
 #st.text(fruits_to_show)
 
