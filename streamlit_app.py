@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import dataframe
 
 st.title('My parents New Health Diner')
 st.header('Breakfast Favourites')
@@ -18,7 +19,7 @@ fruits_selected = st.multiselect("Pick some Fruits",list(my_fruit_list.index),['
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 st.text(fruits_to_show)
-st.dataframe(fruits_to_show)
+st.dataframe(data=None)
 
 #st.text(fruits_to_show)
 #df_my_fruit_list = pd.DataFrame(fruits_to_show)
