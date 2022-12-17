@@ -40,14 +40,16 @@ my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
-st.text("The fruit load list contains:")
+st.header("The fruit load list contains:")
 st.text(my_data_rows)
-
+my_cur.execute("insert into fruit_load_list values ('from streamlit')
+               
 #---------
 #st.header("What fruit would you like to add ?")
 add_my_fruit = st.text_input('What fruit would you like to add?','Banana')
 st.write('Thanks for adding ', add_my_fruit)
 
+               
 import requests
 userinput_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 st.text(userinput_response.json())
