@@ -42,7 +42,7 @@ my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 st.header("The fruit load list contains:")
 st.text(my_data_rows)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
                
 #---------
 #st.header("What fruit would you like to add ?")
