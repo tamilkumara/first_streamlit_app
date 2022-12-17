@@ -33,6 +33,7 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 st.text(fruityvice_normalized)
 
 # code for connecting snowflake into streamlit
+st.stop()
 
 import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
