@@ -25,10 +25,10 @@ st.text(fruits_to_show)
 #st.header("Fruityvice Fruit Advice!")
 
 #New Section to display fruityvice api response
-st.header ('Fruitvvice Fruit Advice! ")
+st.header('Fruitvvice Fruit Advice! ")
 try:
-  fruit_choice = st.text input ('What fruit would you like information about?')
-  if not fruit choice:
+  fruit_choice = st.text_input('What fruit would you like information about?')
+  if not fruit_choice:
     st.error("Please select a fruit to get information.")
   else:
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
