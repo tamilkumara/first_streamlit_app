@@ -42,16 +42,6 @@ try:
 except URLError as e:
   st.error()
 
-#---------
-
-#my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-#my_cur = my_cnx.cursor()
-#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-#my_cur.execute("select * from fruit_load_list")
-#my_data_rows = my_cur.fetchall()
-#st.header("The fruit load list contains:")
-#st.text(my_data_rows)
-#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 #-------------
 st.header ("The fruit load list contains:")
 #Snowflake-related functions
@@ -66,16 +56,29 @@ if st.button('Get Fruit Load List'):
     my_data_rows = get_fruit_load_list()
     st.text(my_data_rows)  # change to text
 
-    
+#--------
+
+# Allow the end user to add a fruit to the list
+def insert_row_snowflake(new fruit):
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("insert into fruit_load_list_values ('from streamlit')")
+        return "Thanks for adding" + new_fruit
+
+add_my_fruit = st.text_input('What fruit would vou like to add?')
+if st.button( "Add a Fruit to the List'):
+    mv_cnx = snowflake.connector.connect(**st.secrets["snowflake" 1)
+    back_from_function = insert_row_snowflake(add_my_fruit)
+    st.text(back_from_function)
+
 st.stop()
 #---------
 #st.header("What fruit would you like to add ?")
-add_my_fruit = st.text_input('What fruit would you like to add?','Banana')
-st.write('Thanks for adding ', add_my_fruit)
+#add_my_fruit = st.text_input('What fruit would you like to add?','Banana')
+#st.write('Thanks for adding ', add_my_fruit)
 
-userinput_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
-st.text(userinput_response.json())
+#userinput_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
+#st.text(userinput_response.json())
 
 # normalize ? 
-userinput_response_normalized = pd.json_normalize(userinput_response.json())
-st.text(userinput_response_normalized)
+#userinput_response_normalized = pd.json_normalize(userinput_response.json())
+#st.text(userinput_response_normalized)
