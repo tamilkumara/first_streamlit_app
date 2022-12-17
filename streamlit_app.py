@@ -28,4 +28,4 @@ st.text(fruityvice_response.json())
 # normalize ? 
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 
-st.dataframe(fruityvice_normalized)
+st.text(fruityvice_normalized)
