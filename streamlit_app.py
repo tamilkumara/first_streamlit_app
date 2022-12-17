@@ -25,7 +25,7 @@ st.text(fruits_to_show)
 #st.header("Fruityvice Fruit Advice!")
 
 #New Section to display fruityvice api response
-streamlit.header ('Fruitvvice Fruit Advice! ")
+st.header ('Fruitvvice Fruit Advice! ")
 try:
   fruit_choice = st.text input ('What fruit would you like information about?')
   if not fruit choice:
