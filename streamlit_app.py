@@ -35,7 +35,7 @@ try:
     fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
     st.text(fruityvice_normalized) # change to text
 except URLError as e:
-st.error()
+  st.error()
 
 #---------
 #fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
