@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import requests
+import snowflake.connector
+from urllib.error import URLError
 
 st.title('My parents New Health Diner')
 st.header('Breakfast Favourites')
@@ -19,23 +22,40 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 st.text(fruits_to_show)
 
-st.header("Fruityvice Fruit Advice!")
-fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
-st.write('The user entered ', fruit_choice)
+#st.header("Fruityvice Fruit Advice!")
 
-import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-st.text(fruityvice_response.json())
+#New Section to display fruityvice api response
+streamlit.header ('Fruitvvice Fruit Advice! ")
+try:
+  fruit_choice = st.text input ('What fruit would you like information about?')
+  if not fruit choice:
+    st.error("Please select a fruit to get information.")
+  else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    st.text(fruityvice_normalized) # change to text
+except URLError as e:
+st.error()
+
+#---------
+#fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
+#st.write('The user entered ', fruit_choice)
+
+
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+#st.text(fruityvice_response.json())
 
 # normalize ? 
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+#fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 
-st.text(fruityvice_normalized)
+#st.text(fruityvice_normalized)
 
 # code for connecting snowflake into streamlit
+
+#---------------
 st.stop()
 
-import snowflake.connector
+
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -50,8 +70,6 @@ my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 add_my_fruit = st.text_input('What fruit would you like to add?','Banana')
 st.write('Thanks for adding ', add_my_fruit)
 
-               
-import requests
 userinput_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 st.text(userinput_response.json())
 
