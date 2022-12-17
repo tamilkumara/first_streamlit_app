@@ -44,8 +44,8 @@ st.text("The fruit load list contains:")
 st.text(my_data_rows)
 
 #---------
-st.header("What fruit would you like to add ?")
-add_my_fruit = st.text_input('What fruit would you like information about?','Banana')
+#st.header("What fruit would you like to add ?")
+add_my_fruit = st.text_input('What fruit would you like to add?','Banana')
 st.write('Thanks for adding ', add_my_fruit)
 
 import requests
