@@ -4,7 +4,7 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
-st.title('My parents New Health Diner')
+st.title('Shobana"'"s New Health Diner')
 st.header('Breakfast Favourites')
 
 st.text('🥣 Omega 3 & Blueberry Oatmeal')
